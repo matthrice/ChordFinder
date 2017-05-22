@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Chord Finder</title>
+		<meta name="description" content="">
+		<meta name="vieport" content="width=device-width">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1 class="text text-center">Chord Finder</h1>
+				<p class="lead text text-center">For Piano</p>
+			</div>
+		</div>
+			<ul class="set" id="piano">
+				<li class="white e"></li>
+				<li class="black ds"></li>
+				<li class="white d"></li>
+				<li class="black cs"></li>
+				<li class="white c"></li>
+				<li class="white b"></li>
+				<li class="black as"></li>
+				<li class="white a"></li>
+				<li class="black gs"></li>
+				<li class="white g"></li>
+				<li class="black fs"></li>
+				<li class="white f"></li>
+				<li class="white e"></li>
+				<li class="black ds"></li>
+				<li class="white d"></li>
+				<li class="black cs"></li>
+				<li class="white c"></li>
+				<li class="white b"></li>
+				<li class="black as"></li>
+				<li class="white a"></li>
+				<li class="black gs"></li>
+				<li class="white g"></li>
+				<li class="black fs"></li>
+				<li class="white f"></li>
+			</ul>
+		<script src="main.js"></script>
+		<script type="text/javascript">
+			$("document").ready(function() {
+				$("#piano li").click(function() {
+					$(this).toggleClass("highlighted");
+				});
+			});
+		</script>
+	</body>
+</html>
