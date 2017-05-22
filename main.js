@@ -27,3 +27,5 @@ function findChord(notes) {
 
 var exChord = [1, 4, 8];
 var name = findChord(exChord);
+
+

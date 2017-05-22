@@ -7,7 +7,7 @@
 		<title>Chord Finder</title>
 		<meta name="description" content="">
 		<meta name="vieport" content="width=device-width">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
@@ -17,37 +17,51 @@
 				<p class="lead text text-center">For Piano</p>
 			</div>
 		</div>
-			<ul class="set" id="piano">
-				<li class="white e"></li>
-				<li class="black ds"></li>
-				<li class="white d"></li>
-				<li class="black cs"></li>
-				<li class="white c"></li>
-				<li class="white b"></li>
-				<li class="black as"></li>
-				<li class="white a"></li>
-				<li class="black gs"></li>
-				<li class="white g"></li>
-				<li class="black fs"></li>
-				<li class="white f"></li>
-				<li class="white e"></li>
-				<li class="black ds"></li>
-				<li class="white d"></li>
-				<li class="black cs"></li>
-				<li class="white c"></li>
-				<li class="white b"></li>
-				<li class="black as"></li>
-				<li class="white a"></li>
-				<li class="black gs"></li>
-				<li class="white g"></li>
-				<li class="black fs"></li>
-				<li class="white f"></li>
-			</ul>
+		<ul class="set" id="piano">
+			<li class="white e"></li>
+			<li class="black ds"></li>
+			<li class="white d"></li>
+			<li class="black cs"></li>
+			<li class="white c"></li>
+			<li class="white b"></li>
+			<li class="black as"></li>
+			<li class="white a"></li>
+			<li class="black gs"></li>
+			<li class="white g"></li>
+			<li class="black fs"></li>
+			<li class="white f"></li>
+			<li class="white e"></li>
+			<li class="black ds"></li>
+			<li class="white d"></li>
+			<li class="black cs"></li>
+			<li class="white c"></li>
+			<li class="white b"></li>
+			<li class="black as"></li>
+			<li class="white a"></li>
+			<li class="black gs"></li>
+			<li class="white g"></li>
+			<li class="black fs"></li>
+			<li class="white f"></li>
+		</ul>
+		<button type="button" class="btn btn-primary btn-block" id="GO">
+			<strong>Find Chord</strong>
+		</button>
+
+
 		<script src="main.js"></script>
 		<script type="text/javascript">
 			$("document").ready(function() {
+				var notes = [];
+				var chord;
 				$("#piano li").click(function() {
 					$(this).toggleClass("highlighted");
+				});
+				$("#GO").on("click", function() {
+					$(".highlighted").each(function() {
+						notes.push($(this).index('li'));
+					});
+					chord = findChord(notes);
+					alert(chord);
 				});
 			});
 		</script>
