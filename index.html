@@ -43,10 +43,23 @@
 			<li class="black fs"></li>
 			<li class="white f"></li>
 		</ul>
-		<button type="button" class="btn btn-primary btn-block" id="GO">
-			<strong>Find Chord</strong>
-		</button>
-
+		<div class="row col-centered">
+			<div class="col-xs-3"></div>
+			<div class="col-xs-3">
+				<button type="button" class="btn btn-primary btn-block" id="GO">
+					<strong>Find Chord</strong>
+				</button>
+			</div>
+			<div class="col-xs-3">
+				<button type="button" class="btn btn-primary btn-block" id="Clear">
+					<strong>Clear</strong>
+				</button>
+			</div>
+			<div class="col-xs-3"></div>
+		</div>
+		<div class="container">
+			<h1 class="text center-block chordbox"></h1>
+		</div>
 
 		<script src="main.js"></script>
 		<script type="text/javascript">
@@ -61,8 +74,12 @@
 						notes.push($(this).index('li'));
 					});
 					chord = findChord(notes);
-					alert(chord);
+					$(".chordbox").text(chord);
+					notes.length = 0;
 				});
+				$("#Clear").on("click", function() {
+					$(".highlighted").removeClass("highlighted");
+				})
 			});
 		</script>
 	</body>

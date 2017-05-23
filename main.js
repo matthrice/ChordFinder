@@ -1,5 +1,5 @@
 var chords = [[4, 3], [3, 4], [4, 3, 3], [4, 3, 4], [3, 4, 3]];
-var chordNames = ["major", "minor", "dom7", "maj7", "min7"];
+var chordNames = ["major", "Cminor", "dom7", "maj7", "min7"];
 
 
 function findChord(notes) {
