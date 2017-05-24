@@ -1,5 +1,5 @@
 var chords = [[4, 3], [3, 4], [4, 3, 3], [4, 3, 4], [3, 4, 3], [3, 3], [5, 2]];
-var chordNames = ["major", "minor", "dom7", "maj7", "min7", "dim", "sus"];
+var shapes = ["major", "minor", "7", "maj7", "min7", "dim", "sus"];
 
 
 function invert(spacings) {
@@ -17,7 +17,8 @@ function invert(spacings) {
 function findChord(notes) {
 	var spacings = [];
 	var equal = true;
-	for (var i = 1; i < notes.length; i++) {
+	var fullChord = {num_inversions: 0, shape: "Does not exist"}
+		for (var i = 1; i < notes.length; i++) {
 		spacings.push(notes[i] - notes[i - 1]);
 	}
 	for (var j = 0; j < notes.length; j++) {
@@ -31,14 +32,16 @@ function findChord(notes) {
 					}
 				}
 				if (equal) {
-					return chordNames[i];
+					fullChord.shape = shapes[i];
+					return fullChord;
 				}
 			}
 		}
 		spacings = invert(spacings);
-		alert(spacings);
+		fullChord.num_inversions++;
 	}
-	return "Does not exist";
+	fullChord.num_inversions = -1;
+	return fullChord;
 }
 
 var exChord = [1, 4, 8];
