@@ -23,7 +23,7 @@
 .col-centered{
     float: none;
     margin: 0 auto;
-    
+
 }
 
 p {
@@ -117,7 +117,7 @@ ul .highlighted:active {
 	border: 5px solid yellow;
 }
 
-.a,.g,.f,.d,.c { margin:0 0 0 -1em;  }
+.g,.a,.b,.d,.e { margin:0 0 0 -1em; }
 
 ul li:first-child { border-radius:5px 0 5px 5px; }
 ul li:last-child { border-radius:0 5px 5px 5px; }

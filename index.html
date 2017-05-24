@@ -18,30 +18,30 @@
 			</div>
 		</div>
 		<ul class="set" id="piano">
-			<li class="white e"></li>
-			<li class="black ds"></li>
-			<li class="white d"></li>
-			<li class="black cs"></li>
 			<li class="white c"></li>
-			<li class="white b"></li>
-			<li class="black as"></li>
-			<li class="white a"></li>
-			<li class="black gs"></li>
-			<li class="white g"></li>
-			<li class="black fs"></li>
-			<li class="white f"></li>
-			<li class="white e"></li>
-			<li class="black ds"></li>
+			<li class="black db"></li>
 			<li class="white d"></li>
-			<li class="black cs"></li>
-			<li class="white c"></li>
-			<li class="white b"></li>
-			<li class="black as"></li>
-			<li class="white a"></li>
-			<li class="black gs"></li>
-			<li class="white g"></li>
-			<li class="black fs"></li>
+			<li class="black eb"></li>
+			<li class="white e"></li>
 			<li class="white f"></li>
+			<li class="black gb"></li>
+			<li class="white g"></li>
+			<li class="black ab"></li>
+			<li class="white a"></li>
+			<li class="black bb"></li>
+			<li class="white b"></li>
+			<li class="white c"></li>
+			<li class="black db"></li>
+			<li class="white d"></li>
+			<li class="black eb"></li>
+			<li class="white e"></li>
+			<li class="white f"></li>
+			<li class="black gb"></li>
+			<li class="white g"></li>
+			<li class="black ab"></li>
+			<li class="white a"></li>
+			<li class="black bb"></li>
+			<li class="white b"></li>
 		</ul>
 		<div class="row col-centered">
 			<div class="col-xs-3"></div>
@@ -76,9 +76,11 @@
 					chord = findChord(notes);
 					$(".chordbox").text(chord);
 					notes.length = 0;
+					chord = "";
 				});
 				$("#Clear").on("click", function() {
 					$(".highlighted").removeClass("highlighted");
+					$(".chordbox").text("");
 				})
 			});
 		</script>
