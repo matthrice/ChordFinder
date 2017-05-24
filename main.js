@@ -24,12 +24,14 @@ function removeOctaves(notes) {
 			}
 			else {
 				notes.splice(i, 1);
+				i--; // reduce index to account for smaller array
 			}
 		}
 		exists = false;
 	}
 	// notes sorted to account for out of order formations
-	return notes.sort();
+	notes.sort(function(a,b) { return a - b; })
+	return notes;
 }
 /*
  * Inverts the chord based on its current inversion
@@ -52,15 +54,14 @@ function invert(spacings) {
  * If not found, inverts chord and tries again
  * Returns both number of inversions (to find root) and the formation 
  */
-function findChord(notes) {
-	notes = removeOctaves(notes);
+function findChord(positions) {
 	var spacings = [];
 	var equal = true;
 	var fullChord = {num_inversions: 0, shape: "Does not exist"}
-		for (var i = 1; i < notes.length; i++) {
-		spacings.push(notes[i] - notes[i - 1]);
+		for (var i = 1; i < positions.length; i++) {
+		spacings.push(positions[i] - positions[i - 1]);
 	}
-	for (var j = 0; j < notes.length; j++) {
+	for (var j = 0; j < positions.length; j++) {
 		for (var i = 0; i < chords.length; i++) {
 			equal = true;
 			if (spacings.length == chords[i].length) {
@@ -83,5 +84,13 @@ function findChord(notes) {
 	return fullChord;
 }
 
+function keyPattern(a, b) {
+	if (a[0] == b[0]) {
+		return (a.length < b.length);
+	}
+	else {
+		return a[0] - b[0];
+	}
+}
 
 

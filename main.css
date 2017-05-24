@@ -1,41 +1,15 @@
-.darkBG {
-	background: #999;
-}
+.jumbotron { padding: 10px; margin-bottom: 10px; }
 
-.darkerBG {
-	background: #666;
-}
+.set { margin-top: 20px; margin-bottom: 25px; }
 
-.darkestBG {
-	background: #333;
-}
+.col-centered{ float: none; margin: 0 auto; }
 
-.jumbotron {
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-.set {
-	margin-top: 20px;
-	margin-bottom: 25px;
-}
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-
-}
-
-p {
-	font-family: 'Raleyway', sans-serif;
-}
+p { font-family: 'Raleyway', sans-serif; }
 
 .btn-block {
 }
 
-h1 {
-	font-family: 'Raleway', sans-serif;
-}
+h1 { font-family: 'Raleway', sans-serif; }
 
 button {
 	background: #999;
@@ -45,11 +19,6 @@ button {
 	font-family: 'Raleway', sans-serif;
 	border-radius: 5px;
 	align-content: center;
-}
-
-#wrapper {
-	width: 929px;
-	margin: 0 auto;
 }
 
 * {box-sizing:border-box;}
@@ -135,21 +104,9 @@ ul li:last-child { border-radius:0 5px 5px 5px; }
 	font-size: 1em;
 }
 
-
 .chordbox {
 	color: white;
 	text-align: center;
 	font-size: 4em;
 	margin-top: 1.5em;
 }
-
-
-
-
-
-
-
-
-
-
-

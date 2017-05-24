@@ -65,27 +65,27 @@
 		<script type="text/javascript">
 			$("document").ready(function() {
 				var positions = [];
-				var notes = [];
+				var root_note = "";
 				var formation = {num_inversions: 0, shape: ""};
 				$("#piano li").click(function() {
 					$(this).toggleClass("highlighted");
 				});
 				$("#GO").on("click", function() {
-					console.log(formation);
-					console.log(notes);
-					console.log(positions);
 					$(".highlighted").each(function() {
 						positions.push($(this).index('li'));
-						notes.push($(this).attr('id'));
 					});
+					// removes octaves and redundancies and identifies formation
+					positions = removeOctaves(positions);
 					formation = findChord(positions);
+					// ensures the chord exists before finding root note
 					if (formation.num_inversions >= 0) {
-						$(".chordbox").text(notes[formation.num_inversions] + " " + formation.shape);
+						var key_location = positions[formation.num_inversions] + 1;
+						root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
+						$(".chordbox").text(root_note + " " + formation.shape);
 					}
 					else {
 						$(".chordbox").text("Does not exist");
 					}
-					notes.length = 0;
 					formation.num_inversions = 0;
 					positions.length = 0;
 					formation.shape = "";
