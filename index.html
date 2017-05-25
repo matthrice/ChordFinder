@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Chord Finder</title>
@@ -62,11 +63,15 @@
 		</div>
 
 		<script src="main.js"></script>
+		<script src="chords.js"></script>
 		<script type="text/javascript">
 			$("document").ready(function() {
 				var positions = [];
+				var spacings = [];
 				var root_note = "";
-				var formation = {num_inversions: 0, shape: ""};
+				var key_location = "";
+				var formation = "";
+				var num_inversions = 0;
 				$("#piano li").click(function() {
 					$(this).toggleClass("highlighted");
 				});
@@ -74,21 +79,57 @@
 					$(".highlighted").each(function() {
 						positions.push($(this).index('li'));
 					});
-					// removes octaves and redundancies and identifies formation
-					positions = removeOctaves(positions);
-					formation = findChord(positions);
-					// ensures the chord exists before finding root note
-					if (formation.num_inversions >= 0) {
-						var key_location = positions[formation.num_inversions] + 1;
+					if (positions.length == 1) {
+						key_location = positions[0] + 1;
 						root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
-						$(".chordbox").text(root_note + " " + formation.shape);
+						$(".chordbox").text(root_note);
 					}
-					else {
-						$(".chordbox").text("Does not exist");
+					else if (positions.length > 1) {
+						// removes octaves and redundancies and identifies formation
+						positions = removeOctaves(positions);
+						spacings = findSpacings(positions);
+						if (spacings.length == 0) {
+							key_location = positions[0] + 1;
+							root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
+							$(".chordbox").text(root_note + " " + "8");
+						}
+						else {
+							for (var i = 0; i < spacings.length; i++) {
+								switch (spacings.length) {
+									case 1:
+										formation = searchSet(spacings, chords1);
+										break;
+									case 2:
+										formation = searchSet(spacings, chords2);
+										break;
+									case 3:
+										formation = searchSet(spacings, chords3);
+										break;
+									case 4:
+										formation = searchSet(spacings, chords4);
+										break;
+									default:
+										formation = "";
+								}
+								if (formation != "") {
+									key_location = positions[num_inversions] + 1;
+									root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
+									$(".chordbox").text(root_note + " " + formation);
+									break;
+								}
+								spacings = invert(spacings);
+								num_inversions++;
+							}
+							// ensures the chord exists before finding root note
+							if (num_inversions == spacings.length) {
+								$(".chordbox").text("Does not exist");
+							}
+						}
 					}
-					formation.num_inversions = 0;
+					formation = "";
 					positions.length = 0;
-					formation.shape = "";
+					num_inversions = 0;
+
 				});
 				$("#Clear").on("click", function() {
 					$(".highlighted").removeClass("highlighted");

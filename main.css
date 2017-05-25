@@ -4,19 +4,19 @@
 
 .col-centered{ float: none; margin: 0 auto; }
 
-p { font-family: 'Raleyway', sans-serif; }
+p { font-family: 'Boogaloo', cursive; letter-spacing: 2px}
 
 .btn-block {
 }
 
-h1 { font-family: 'Raleway', sans-serif; }
+h1 { font-family: 'Boogaloo', cursive; letter-spacing: 4px}
 
 button {
 	background: #999;
 	padding: 20px;
 	margin: 5px;
 	font-size: 200%;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Boogaloo', cursive;
 	border-radius: 5px;
 	align-content: center;
 }
@@ -92,7 +92,7 @@ ul li:first-child { border-radius:5px 0 5px 5px; }
 ul li:last-child { border-radius:0 5px 5px 5px; }
 
 .btn-block {
-	font-family: "Raleway", sans-serif;
+	font-family: "Boogaloo", cursive;
 	width: 10em;
 	position: relative;
 	margin: 0 auto;
@@ -101,7 +101,7 @@ ul li:last-child { border-radius:0 5px 5px 5px; }
 	border-radius: 5px;
 	background: #ccc;
 	color: black;
-	font-size: 1em;
+	font-size: 1.5em;
 }
 
 .chordbox {

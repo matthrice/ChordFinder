@@ -1,6 +1,29 @@
-var chords = [[4, 3], [3, 4], [4, 3, 3], [4, 3, 4], [3, 4, 3], [3, 3], [5, 2]];
-var shapes = ["major", "minor", "7", "maj7", "min7", "dim", "sus"];
+// Piano global notes 
 var num_notes = 12;
+
+/*
+ * Search through given dictionary by property for key
+ * Returns empty string if not found
+ * Only meant for use on arrays of same length
+ */
+function searchSet(spacings, chords) {
+	for (var property in chords) {
+		if (chords.hasOwnProperty(property)) {
+			equal = true;
+			for (var k = 0; k < spacings.length; k++) {
+				if (spacings[k] != chords[property][k]) {
+					equal = false;
+					break;
+				}
+			}
+			if (equal) {
+				return property;
+			}
+
+		}
+	}
+	return "";
+}
 
 /* 
  * Removes octave to avoid redundancy and simplify identification
@@ -50,47 +73,13 @@ function invert(spacings) {
 
 /*
  * Finds chord by first reducing notes to an array of spacings between notes
- * Linear searches the spacings for an existing formation
- * If not found, inverts chord and tries again
- * Returns both number of inversions (to find root) and the formation 
  */
-function findChord(positions) {
+function findSpacings(positions) {
 	var spacings = [];
-	var equal = true;
-	var fullChord = {num_inversions: 0, shape: "Does not exist"}
 		for (var i = 1; i < positions.length; i++) {
 		spacings.push(positions[i] - positions[i - 1]);
 	}
-	for (var j = 0; j < positions.length; j++) {
-		for (var i = 0; i < chords.length; i++) {
-			equal = true;
-			if (spacings.length == chords[i].length) {
-				for (var k = 0; k < spacings.length; k++) {
-					if (spacings[k] != chords[i][k]) {
-						equal = false;
-						break;
-					}
-				}
-				if (equal) {
-					fullChord.shape = shapes[i];
-					return fullChord;
-				}
-			}
-		}
-		spacings = invert(spacings);
-		fullChord.num_inversions++;
-	}
-	fullChord.num_inversions = -1;
-	return fullChord;
-}
-
-function keyPattern(a, b) {
-	if (a[0] == b[0]) {
-		return (a.length < b.length);
-	}
-	else {
-		return a[0] - b[0];
-	}
+	return spacings;
 }
 
 
