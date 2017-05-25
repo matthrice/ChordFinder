@@ -33,6 +33,7 @@ function searchSet(spacings, chords) {
 function removeOctaves(notes) {
 	var new_note = 0;
 	var exists = false;
+	var inversions = 0;
 	for (var i = 0; i < notes.length; i++) {
 		if (notes[i] > 11) {
 			new_note = notes[i] - 12;
@@ -44,6 +45,9 @@ function removeOctaves(notes) {
 			}
 			if (!exists) {
 				notes[i] = new_note;
+				if (notes[i] < notes[0]) {
+					inversions++;
+				}
 			}
 			else {
 				notes.splice(i, 1);
@@ -54,6 +58,7 @@ function removeOctaves(notes) {
 	}
 	// notes sorted to account for out of order formations
 	notes.sort(function(a,b) { return a - b; })
+	notes.push(inversions);
 	return notes;
 }
 /*
