@@ -1,22 +1,10 @@
-.jumbotron { padding: 10px; margin-bottom: 10px; }
+.jumbotron { padding: 5px; margin-bottom: 0px; }
 
 .set { margin-top: 20px; margin-bottom: 25px; }
 
 .col-centered{ float: none; margin: 0 auto; }
 
 p { font-family: 'Boogaloo', cursive; letter-spacing: 2px}
-
-.btn-block {
-}
-
-footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:40px;   /* Height of the footer */
-   background:#222;
-   color: #888;
-}
 
 h1 { font-family: 'Boogaloo', cursive; letter-spacing: 4px}
 
@@ -113,9 +101,32 @@ ul li:last-child { border-radius:0 5px 5px 5px; }
 	font-size: 1.5em;
 }
 
+.btn-link {
+	font-family: 'Boogaloo', cursive;
+	font-size: 20px;
+}
+
+.btn-link:active {
+	border: none;
+}
+
 .chordbox {
 	color: white;
 	text-align: center;
 	font-size: 4em;
-	margin-top: 1.5em;
+	margin-top: 1em;
+}
+
+.footer {
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  font-family: 'Boogaloo', cursive;
+  letter-spacing: .1em;
+  font-size: 1.4em;
+  color: white;
+  background-color: #222;
+  text-align: right;
 }

@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="jumbotron">
 				<h1 class="text text-center">Chord Finder</h1>
-				<p class="lead text text-center">For Piano</p>
+				<p class="lead text text-center">For Piano </p>
 			</div>
 		</div>
 		<ul class="set" id="piano">
@@ -60,10 +60,10 @@
 		</div>
 		<div class="container">
 			<h1 class="text center-block chordbox"></h1>
-		</div>
-		<footer>
-			<p class = "lead text text-center">Built by Matthew Rice</p>
-		</footer>
+			<div>
+				<a href="#" target="_blank" class="btn btn-link center-block" role="button" id="wiki-link"></a>
+			</div>
+		<div class="footer">Built by Matt Rice</div>
 
 		<script src="main.js"></script>
 		<script src="chords.js"></script>
@@ -87,6 +87,8 @@
 						key_location = positions[0] + 1;
 						root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
 						$(".chordbox").text(root_note);
+						$("#wiki-link").text(wiki_url[0] + root_note + wiki_url[1]);
+						$("#wiki-link").attr("href", wiki_url[0] + root_note + wiki_url[1]);
 					}
 					else if (positions.length > 1) {
 						// removes octaves and redundancies and identifies formation
@@ -150,6 +152,7 @@
 				$("#Clear").on("click", function() {
 					$(".highlighted").removeClass("highlighted");
 					$(".chordbox").text("");
+					$("#wiki-link").text("");
 				})
 			});
 		</script>
