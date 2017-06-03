@@ -1,5 +1,7 @@
+var wiki_url = ["https://en.wikipedia.org/wiki/", "_(musical_note)"];
+
 var chords1 = {
-	"8": [],
+	"8": [], 
 	"mi2": [1],
 	"maj2": [2],
 	"mi3": [3],
