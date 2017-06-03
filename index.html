@@ -73,7 +73,7 @@
 				var spacings = [];
 				var root_note = "";
 				var key_location = "";
-				var formation = "";
+				var formation = [];
 				var num_inversions = 0;
 				var exists = false;
 				$("#piano li").click(function() {
@@ -110,27 +110,29 @@
 							for (var i = 0; i < spacings.length + 1; i++) {
 								switch (spacings.length) {
 									case 1:
-										formation = searchSet(spacings, chords1);
+										formation = searchSet(spacings, chords1, links1);
 										break;
 									case 2:
-										formation = searchSet(spacings, chords2);
+										formation = searchSet(spacings, chords2, links2);
 										break;
 									case 3:
-										formation = searchSet(spacings, chords3);
+										formation = searchSet(spacings, chords3, links3);
 										break;
 									case 4:
-										formation = searchSet(spacings, chords4);
+										formation = searchSet(spacings, chords4, links4);
 										break;
 									default:
-										formation = "";
+										formation = [];
 								}
-								if (formation != "") {
+								if (formation.length != 0) {
 									// because of initial inversions, total inversions may be greater than
 									// size of the positions array. Because inversions repeat themselves
 									// modulo of the array length will give correct key location
 									key_location = positions[num_inversions % positions.length] + 1;
 									root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
-									$(".chordbox").text(root_note + " " + formation);
+									$(".chordbox").text(root_note + " " + formation[0]);
+									$("#wiki-link").text(formation[1]);
+									$("#wiki-link").attr("href", formation[1]);
 									exists = true;
 									break;
 								}
@@ -140,11 +142,12 @@
 							// ensures the chord exists before finding root note
 							if (!exists) {
 								$(".chordbox").text("No Matches Found");
+								$("#wiki-link").text("");
 							}
 							exists = false;
 						}
 					}
-					formation = "";
+					formation = [];
 					positions.length = 0;
 					num_inversions = 0;
 

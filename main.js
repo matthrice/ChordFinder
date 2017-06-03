@@ -6,7 +6,8 @@ var num_notes = 12;
  * Returns empty string if not found
  * Only meant for use on arrays of same length
  */
-function searchSet(spacings, chords) {
+function searchSet(spacings, chords, links) {
+	var index = 0;
 	for (var property in chords) {
 		if (chords.hasOwnProperty(property)) {
 			equal = true;
@@ -17,10 +18,11 @@ function searchSet(spacings, chords) {
 				}
 			}
 			if (equal) {
-				return property;
+				return [property, links[index]];
 			}
 
 		}
+		index++;
 	}
 	return "";
 }
