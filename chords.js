@@ -15,20 +15,20 @@ var chords1 = {
 	"maj7": [11]
 }
 
-var links1 = [
-	"https://en.wikipedia.org/wiki/Octave",
-	"https://en.wikipedia.org/wiki/Semitone#Minor_second",
-	"https://en.wikipedia.org/wiki/Major_second",
-	"https://en.wikipedia.org/wiki/Minor_third",
-	"https://en.wikipedia.org/wiki/Major_third",
-	"https://en.wikipedia.org/wiki/Perfect_fourth",
-	"https://en.wikipedia.org/wiki/Tritone",
-	"https://en.wikipedia.org/wiki/Perfect_fifth",
-	"https://en.wikipedia.org/wiki/Minor_sixth",
-	"https://en.wikipedia.org/wiki/Major_sixth",
-	"https://en.wikipedia.org/wiki/Minor_seventh",
-	"https://en.wikipedia.org/wiki/Major_seventh"
-]
+var links1 = {
+	"8": "https://en.wikipedia.org/wiki/Octave",
+	"mi2": "https://en.wikipedia.org/wiki/Semitone#Minor_second",
+	"maj2": "https://en.wikipedia.org/wiki/Major_second",
+	"mi3": "https://en.wikipedia.org/wiki/Minor_third",
+	"maj3": "https://en.wikipedia.org/wiki/Major_third",
+	"4": "https://en.wikipedia.org/wiki/Perfect_fourth",
+	"aug4": "https://en.wikipedia.org/wiki/Tritone",
+	"5": "https://en.wikipedia.org/wiki/Perfect_fifth",
+	"mi6": "https://en.wikipedia.org/wiki/Minor_sixth",
+	"maj6": "https://en.wikipedia.org/wiki/Major_sixth",
+	"mi7": "https://en.wikipedia.org/wiki/Minor_seventh",
+	"maj7": "https://en.wikipedia.org/wiki/Major_seventh"
+}
 
 var chords2 = {
 	"major": [4, 3],
@@ -39,14 +39,14 @@ var chords2 = {
 	"aug": [4, 4]
 }
 
-var links2 = [
-	"https://en.wikipedia.org/wiki/Major_chord",
-	"https://en.wikipedia.org/wiki/Minor_chord",
-	"https://en.wikipedia.org/wiki/Diminished_triad",
-	"https://en.wikipedia.org/wiki/Suspended_chord",
-	"https://en.wikipedia.org/wiki/Major_seventh_chord",
-	"https://en.wikipedia.org/wiki/Augmented_triad"
-]
+var links2 = {
+	"major": "https://en.wikipedia.org/wiki/Major_chord",
+	"minor": "https://en.wikipedia.org/wiki/Minor_chord",
+	"dim": "https://en.wikipedia.org/wiki/Diminished_triad",
+	"sus4": "https://en.wikipedia.org/wiki/Suspended_chord",
+	"maj7": "https://en.wikipedia.org/wiki/Major_seventh_chord",
+	"aug": "https://en.wikipedia.org/wiki/Augmented_triad"
+}
 
 var chords3 = {
 	"7": [4, 3, 3],
@@ -63,16 +63,17 @@ var chords3 = {
 	"add 9": [3, 4, 7]
 }
 
-var links3 = [
-	"https://en.wikipedia.org/wiki/Dominant_seventh_chord",
-	"https://en.wikipedia.org/wiki/Major_seventh_chord",
-	"https://en.wikipedia.org/wiki/Minor_seventh_chord",
-	"https://en.wikipedia.org/wiki/Sixth_chord",
-	"https://en.wikipedia.org/wiki/Diminished_seventh_chord",
-	"https://en.wikipedia.org/wiki/Dominant_seventh_flat_five_chord",
-	"https://en.wikipedia.org/wiki/Half-diminished_seventh_chord",
-	"https://en.wikipedia.org/wiki/Minor_major_seventh_chord",
-	"https://en.wikipedia.org/wiki/Augmented_major_seventh_chord",
-	"https://en.wikipedia.org/wiki/Augmented_seventh_chord",
-	"https://en.wikipedia.org/wiki/Ninth_chord"
-]
+var links3 = {
+	"7": "https://en.wikipedia.org/wiki/Dominant_seventh_chord",
+	"maj7": "https://en.wikipedia.org/wiki/Major_seventh_chord",
+	"mi7": "https://en.wikipedia.org/wiki/Minor_seventh_chord",
+	"maj6": "https://en.wikipedia.org/wiki/Sixth_chord",
+	"dim7": "https://en.wikipedia.org/wiki/Diminished_seventh_chord",
+	"7♭5": "https://en.wikipedia.org/wiki/Dominant_seventh_flat_five_chord",
+	"mi7♭5": "https://en.wikipedia.org/wiki/Half-diminished_seventh_chord",
+	"dim maj7": "https://en.wikipedia.org/wiki/Diminished_major_seventh_chord",
+	"mi maj7": "https://en.wikipedia.org/wiki/Minor_major_seventh_chord",
+	"aug 7": "https://en.wikipedia.org/wiki/Augmented_major_seventh_chord",
+	"mi aug7": "https://en.wikipedia.org/wiki/Augmented_seventh_chord",
+	"add 9": "https://en.wikipedia.org/wiki/Ninth_chord"
+}

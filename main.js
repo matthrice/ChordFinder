@@ -7,7 +7,6 @@ var num_notes = 12;
  * Only meant for use on arrays of same length
  */
 function searchSet(spacings, chords, links) {
-	var index = 0;
 	for (var property in chords) {
 		if (chords.hasOwnProperty(property)) {
 			equal = true;
@@ -18,11 +17,9 @@ function searchSet(spacings, chords, links) {
 				}
 			}
 			if (equal) {
-				return [property, links[index]];
+				return [property, links[property]];
 			}
-
 		}
-		index++;
 	}
 	return "";
 }

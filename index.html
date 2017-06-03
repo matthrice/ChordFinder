@@ -96,10 +96,13 @@
 						num_inversions = positions[positions.length - 1];
 						positions.pop();
 						spacings = findSpacings(positions);
+						// if chord is a perfect octave
 						if (spacings.length == 0) {
 							key_location = positions[0] + 1;
 							root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
 							$(".chordbox").text(root_note + " " + "8");
+							$("#wiki-link").text(links1[0]);
+							$("#wiki-link").attr("href", links1[0]);
 						}
 						// when spacings exist (not an octave)
 						// should prioritize initial base note, invert spacings until positions[0] is on bottom
