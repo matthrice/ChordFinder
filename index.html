@@ -61,7 +61,7 @@
 		<div class="container">
 			<h1 class="text center-block chordbox"></h1>
 			<div>
-				<a href="#" target="_blank" class="btn btn-link center-block" role="button" id="wiki-link"></a>
+				<a target="_blank" class="btn btn-link center-block" role="button" id="wiki-link"></a>
 			</div>
 		<div class="footer">Built by Matt Rice</div>
 
@@ -87,7 +87,7 @@
 						key_location = positions[0] + 1;
 						root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
 						$(".chordbox").text(root_note);
-						$("#wiki-link").text(wiki_url[0] + root_note + wiki_url[1]);
+						$("#wiki-link").text("Learn More");
 						$("#wiki-link").attr("href", wiki_url[0] + root_note + wiki_url[1]);
 					}
 					else if (positions.length > 1) {
@@ -101,8 +101,8 @@
 							key_location = positions[0] + 1;
 							root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
 							$(".chordbox").text(root_note + " " + "8");
-							$("#wiki-link").text(links1[0]);
-							$("#wiki-link").attr("href", links1[0]);
+							$("#wiki-link").text("Learn More");
+							$("#wiki-link").attr("href", links1["8"]);
 						}
 						// when spacings exist (not an octave)
 						// should prioritize initial base note, invert spacings until positions[0] is on bottom
@@ -131,7 +131,7 @@
 									key_location = positions[num_inversions % positions.length] + 1;
 									root_note = $("#piano li:nth-child(" + key_location + ")").attr('id');
 									$(".chordbox").text(root_note + " " + formation[0]);
-									$("#wiki-link").text(formation[1]);
+									$("#wiki-link").text("Learn More");
 									$("#wiki-link").attr("href", formation[1]);
 									exists = true;
 									break;
@@ -156,6 +156,7 @@
 					$(".highlighted").removeClass("highlighted");
 					$(".chordbox").text("");
 					$("#wiki-link").text("");
+					$("#wiki-link").removeAttr("href");
 				})
 			});
 		</script>
